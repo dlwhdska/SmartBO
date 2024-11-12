@@ -82,25 +82,4 @@ public class MemberService {
                 .leaveDate(member.getLeaveDate())
                 .build());
     }
-	
-	@Transactional
-    public void insertTestMembers() {
-        for (int i = 3; i <= 302; i++) {
-            Member member = new Member();
-            member.setMemberId((long) i);
-            member.setEmail("member" + i + "@example.com");
-            member.setPwd("password" + i);
-            member.setName("이름" + i);
-            member.setContact("010-0000-00" + i);
-            member.setPosition(Position.values()[i % Position.values().length]); // 4개의 직책 순환
-            member.setDepartment("부서" + (i % 5 + 1)); // 5개의 부서 순환
-            member.setStatus(i % 3 == 0 ? Status.RETIRED : Status.ACTIVE); // ACTIVE, RETIRED 상태 순환
-            member.setRole(i % 5 == 0 ? Role.ADMIN : Role.EMPLOYEE); // 5명마다 ADMIN, 나머지는 EMPLOYEE
-            member.setJoinDate(LocalDate.now());
-            member.setLeaveDate(i % 10 == 0 ? LocalDate.now().plusDays(365) : null); // 퇴사일을 10명마다 설정
-
-            memberRepository.save(member); // 데이터 저장
-        }
-    }
-	
 }

@@ -37,7 +37,6 @@ public class MemberController {
 			if (Role.EMPLOYEE.equals(memberDTO.getRole())) {
 				return "redirect:/";
 			} else {
-				memberService.insertTestMembers();
 				return "redirect:/admin";
 			}
 		} catch (Exception e) {
