@@ -29,7 +29,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/member/login")
-	public String postLogin(@RequestParam("email") String email,@RequestParam("pwd") String pwd, HttpSession session, Model model) {
+	public String postLogin(@RequestParam("email") String email, @RequestParam("pwd") String pwd, HttpSession session, Model model) {
 		
 		try {
 			MemberDTO memberDTO = memberService.login(email, pwd);
