@@ -1,9 +1,12 @@
-package com.smartbo.attendance.test;
+package com.smartbo.test;
 
 import com.smartbo.attendance.domain.AbsentYn;
 import com.smartbo.attendance.domain.Attendance;
 import com.smartbo.attendance.repository.AttendanceRepository;
 import com.smartbo.member.domain.Member;
+
+import lombok.RequiredArgsConstructor;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +19,7 @@ import java.util.stream.IntStream;
 @SpringBootTest
 public class AttendanceDataTest {
 
-    @Autowired
+	@Autowired
     private AttendanceRepository attendanceRepository;
 
 //    @Test
@@ -32,7 +35,7 @@ public class AttendanceDataTest {
                 attendance.setMember(member);
                 attendance.setDate(LocalDate.of(2024, 3, random.nextInt(31) + 1));
 
-                if (random.nextFloat() < 0.1) { // 10% 확률로 결근
+                if (random.nextFloat() < 0.1) { 
                     attendance.setAbsentYn(AbsentYn.Y);
                     attendance.setAbsentReason(getRandomReason(random));
                 } else {
