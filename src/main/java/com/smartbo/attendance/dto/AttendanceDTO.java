@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import com.smartbo.attendance.domain.AbsentYn;
-import com.smartbo.member.domain.Member;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

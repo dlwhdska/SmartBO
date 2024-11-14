@@ -4,13 +4,14 @@ import java.time.LocalDate;
 
 import com.smartbo.attendance.domain.LeaveType;
 import com.smartbo.attendance.domain.Status;
-import com.smartbo.member.domain.Member;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,7 +19,7 @@ import lombok.Setter;
 public class LeaveRequestDTO {
 
 	private Long leaveRequestId;
-	private Member member;
+	private String memberName;
 	private Status status;
 	private LeaveType leaveType;
 	private LocalDate startDate;
